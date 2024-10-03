@@ -1,36 +1,31 @@
-# Librerias
 import matplotlib.pyplot as plt
 import pandas as pd
 
 # Función para generar números aleatorios
 def random(seed, iteration, max_digits):
     valores = []  # Lista para almacenar los números generados
-    # Iterar
-    for i in range (iteration):
-
+    for _ in range(iteration):
         # Elevar al cuadrado
         seed = seed * seed
-
-        #Extraer digitos centrales
+        
+        # Extraer dígitos centrales
         lon = len(str(seed))
         dif = lon - max_digits
-
-        if(lon <= max_digits):
-            #print(seed)
-            continue
-            
-        if(dif % 2 == 0):
-            dif = dif // 2
-        else:
-            dif = (dif + 1) // 2
-
-        seed = int(str(seed)[dif:-dif])
-        #print(seed)
+        
+        # Asegúrate de no cortar la secuencia prematuramente
+        if dif < 0:
+            # Si la longitud es menor que max_digits, ajustar dif
+            dif = 0
+        
+        # Ajustar el índice para la extracción
+        start = dif // 2
+        seed = int(str(seed)[start:start + max_digits])  # Extraer max_digits
+        
         # Almacenar el número generado
         valores.append(seed)
 
     return valores
-        
+
 # Guardar los números aleatorios generados en una lista
 valores = random(154, 100, 4)
 
