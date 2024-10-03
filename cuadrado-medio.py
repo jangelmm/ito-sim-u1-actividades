@@ -10,13 +10,19 @@ def random(seed, iteration, max_digits):
         lon = len(str(seed))
         dif = lon - max_digits
 
+        if(lon <= max_digits):
+            print(seed)
+            continue
+            
         if(dif % 2 == 0):
             dif = dif // 2
         else:
             dif = (dif + 1) // 2
 
         seed = int(str(seed)[dif:-dif])
+        print(seed)
 
     return seed
-print(random(154, 3, 5))
+
+random(12, 15, 3)
         
