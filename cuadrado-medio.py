@@ -32,7 +32,7 @@ def random(seed, iteration, max_digits):
     return valores
         
 # Guardar los números aleatorios generados en una lista
-valores = random(154, 100, 4)
+valores = random(154, 10, 4)
 
 # Imprimir y graficar los resultados
 print(valores)
