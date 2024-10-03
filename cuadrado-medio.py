@@ -5,14 +5,20 @@ import pandas as pd
 # Función para generar números aleatorios
 def random(seed, iteration, max_digits):
     valores = []  # Lista para almacenar los números generados
+    rn = []
+    rn2 = []
+    mr = []
     val1 = []
     val2 = []
 
     # Iterar
     for i in range (iteration):
+        # Guardar el valor
+        rn.append(seed)
 
         # Elevar al cuadrado
         seed = seed * seed
+        rn2.append(seed)
 
         #Extraer digitos centrales
         lon = len(str(seed))
@@ -24,10 +30,13 @@ def random(seed, iteration, max_digits):
             
         if(dif % 2 == 0):
             dif = dif // 2
+            mr.append(int(str(seed)[dif:-dif]))
+
             aux1 = int(str(seed)[dif+1:-dif])
             seed = int(str(seed)[dif:-dif-1])
         else:
             dif = (dif + 1) // 2
+            mr.append(int(str(seed)[dif:-dif]))
             aux1 = 0
             seed = int(str(seed)[dif:-dif])
 
@@ -36,6 +45,10 @@ def random(seed, iteration, max_digits):
         # Almacenar el número generado
         val1.append(seed)
         val2.append(aux1)
+    
+    valores.append(rn)
+    valores.append(rn2)
+    valores.append(mr)
     valores.append(val1)
     valores.append(val2)
     return valores
@@ -46,6 +59,9 @@ valores = random(154, 12, 4)
 # Imprimir y graficar los resultados
 print(valores[0])
 print(valores[1])
+print(valores[2])
+print(valores[3])
+print(valores[4])
 
 # Opcional: graficar los resultados val1 
 plt.hist(valores[0], bins=20, edgecolor='black')
