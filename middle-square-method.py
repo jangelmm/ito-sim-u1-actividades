@@ -28,7 +28,10 @@ def random(seed, iteration, max_digits):
         seed = int(str(seed)[dif:-dif])
         #print(seed)
         # Almacenar el número generado
-        valores.append(seed)
+
+        norm = seed * 0.0001
+        #valores.append(seed)
+        valores.append(norm)
 
     return valores
         
