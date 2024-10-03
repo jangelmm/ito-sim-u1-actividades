@@ -1,5 +1,5 @@
 # Función para generar números aleatorios
-def random(seed, iteration):
+def random(seed, iteration, max_digits):
     # Iterar
     for i in range (iteration):
 
@@ -7,10 +7,16 @@ def random(seed, iteration):
         seed = seed * seed
 
         #Extraer digitos centrales
-        val = int(str(seed)[1:-1])
+        lon = len(str(seed))
+        dif = lon - max_digits
 
-        seed = val
+        if(dif % 2 == 0):
+            dif = dif // 2
+        else:
+            dif = (dif + 1) // 2
+
+        seed = int(str(seed)[dif:-dif])
+
     return seed
-
-print(random(76, 7))
+print(random(154, 3, 5))
         
