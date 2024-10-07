@@ -49,10 +49,11 @@ def random(seed, iteration, max_digits):
     return valores
         
 # Guardar los números aleatorios generados en una lista
-valores = random(154, 15, 4)
+valores = random(154, 13, 4)
 
 # Opcional: graficar los resultados val1 
 plt.hist(valores[0], bins=20, edgecolor='black')
+
 plt.title('Histograma de Números Generados (val1)')
 plt.xlabel('Número')
 plt.ylabel('Frecuencia')
